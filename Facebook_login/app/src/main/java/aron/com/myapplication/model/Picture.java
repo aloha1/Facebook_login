@@ -1,4 +1,4 @@
-package aron.com.myapplication.utils;
+package aron.com.myapplication.model;
 
 import com.google.gson.annotations.SerializedName;
 

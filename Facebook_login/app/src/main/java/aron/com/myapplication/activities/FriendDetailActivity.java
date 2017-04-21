@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 import aron.com.myapplication.R;
-import aron.com.myapplication.utils.Friend;
+import aron.com.myapplication.model.Friend;
 
 /**
  * Created by Yunwen on 4/20/2017.

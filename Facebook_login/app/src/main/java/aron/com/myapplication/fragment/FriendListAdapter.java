@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import java.util.List;
 import aron.com.myapplication.R;
-import aron.com.myapplication.utils.Friend;
+import aron.com.myapplication.model.Friend;
 
 
 public class FriendListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
@@ -144,70 +144,4 @@ public class FriendListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     public void setLoadMoreListener(OnLoadMoreListener loadMoreListener) {
         this.loadMoreListener = loadMoreListener;
     }
-//    public enum ITEM_TYPE {
-//        ITEM_TYPE_IMAGE,
-//        ITEM_TYPE_TEXT
-//    }
-//    private final LayoutInflater mLayoutInflater;
-//    private final Context mContext;
-//    private String[] mTitles;
-//
-//    public FriendListAdapter(Context context) {
-//        mTitles = context.getResources().getStringArray(R.array.titles);
-//        mContext = context;
-//        mLayoutInflater = LayoutInflater.from(context);
-//    }
-//
-//    @Override
-//    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-//            return new TextViewHolder(mLayoutInflater.inflate(R.layout.item_text, parent, false));
-//    }
-//
-//    @Override
-//    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
-//        if (holder instanceof TextViewHolder) {
-//            ((TextViewHolder) holder).mTextView.setText(mTitles[position]);
-//            ((TextViewHolder) holder).mTextView.setTextColor(mContext.getResources().getColor(R.color.colorText));
-//                    ((TextViewHolder) holder).mTextView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    if (mContext instanceof View.OnClickListener) {
-//                        switch (((TextViewHolder) holder).mTextView.getText().toString()) {
-//                            case "DbFavorite": /* start activity accordingly */
-//                                ((MainActivity) mContext).startAlgorithmFragment(mTitles[position]);
-//                                break;
-//                            default:
-//                                Toast.makeText(mContext, "Coming soon", Toast.LENGTH_SHORT).show();
-//                                break;
-//                        }
-//                    }
-//                }
-//            });
-//        }
-//    }
-//
-//    @Override
-//    public int getItemViewType(int position) {
-//        return position % 2 == 0 ? ITEM_TYPE.ITEM_TYPE_IMAGE.ordinal() : ITEM_TYPE.ITEM_TYPE_TEXT.ordinal();
-//    }
-//
-//    @Override
-//    public int getItemCount() {
-//        return mTitles == null ? 0 : mTitles.length;
-//    }
-//
-//    public static class TextViewHolder extends RecyclerView.ViewHolder {
-//        @Bind(R.id.text_view)
-//        TextView mTextView;
-//
-//        TextViewHolder(View view) {
-//            super(view);
-//            ButterKnife.bind(this, view);
-//        }
-//
-//        @OnClick(R.id.cv_text)
-//        void onItemClick() {
-//            Log.d("TextViewHolder", "onClick--> position = " + getPosition());
-//        }
-//    }
 }

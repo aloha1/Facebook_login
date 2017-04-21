@@ -9,6 +9,9 @@ import com.google.gson.JsonParseException;
 
 import java.lang.reflect.Type;
 
+import aron.com.myapplication.model.Friend;
+import aron.com.myapplication.model.Picture;
+
 /**
  * Created by Yunwen on 4/20/2017.
  */

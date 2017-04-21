@@ -10,6 +10,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import aron.com.myapplication.model.Friend;
+
 /**
  * Created by Yunwen on 4/20/2017.
  */

@@ -25,7 +25,7 @@ import java.util.List;
 
 import aron.com.myapplication.R;
 import aron.com.myapplication.activities.FriendDetailActivity;
-import aron.com.myapplication.utils.Friend;
+import aron.com.myapplication.model.Friend;
 import aron.com.myapplication.utils.JsonUtils;
 
 import static aron.com.myapplication.activities.FriendDetailActivity.EXTRA_FRIEND;
