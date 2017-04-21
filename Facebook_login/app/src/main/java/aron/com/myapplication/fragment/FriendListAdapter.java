@@ -2,7 +2,6 @@ package aron.com.myapplication.fragment;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,7 +77,6 @@ public class FriendListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
         if (holder instanceof FriendHolder) {
             Friend friend= friendList.get(position);
-            Log.d(TAG, friend.getName());
             ((FriendHolder) holder).tvName.setText(friend.getName());
             Picasso.with((((FriendHolder) holder).civFriends.getContext()))
                     .load(friend.getPicture().url).into(((FriendHolder) holder).civFriends);
@@ -129,7 +127,7 @@ public class FriendListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         ProgressBar progressBar;
         public LoadHolder(View itemView) {
             super(itemView);
-            progressBar = (ProgressBar) itemView.findViewById(R.id.progressBar);
+            progressBar = (ProgressBar) itemView.findViewById(R.id.progress_bar);
         }
     }
 

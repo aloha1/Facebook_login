@@ -24,4 +24,5 @@
     <string name="email">Email: @mail.com</string>
     <string name="gender">Gender: Male/Female</string>
     <string name="btn">Button</string>
+    <string name="click_hint">Click to show more</string>
 </resources>

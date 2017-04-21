@@ -1,10 +1,12 @@
 package aron.com.myapplication.activities;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -39,14 +41,13 @@ public class LoginActivity extends AppCompatActivity implements LoginFragment.Fr
 
     private void checkExistLogin(Bundle savedInstanceState){
         if (savedInstanceState == null) {
-            Log.d(TAG, "Bundle is clear, transaction add");
             LoginFragment fragment = LoginFragment.getInstance();
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction()
                     .add(R.id.container_login, fragment);
             transaction.addToBackStack(LoginFragment.TAG);
             transaction.commit();
         } else {
-            Log.d(TAG, "Last Login existed");
+            Toast.makeText(getApplicationContext(),"Last Login existed",Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -72,18 +73,12 @@ public class LoginActivity extends AppCompatActivity implements LoginFragment.Fr
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-    @Override
-    public void onBackPressed() {
-        Log.d(TAG, "onBackPressed()");
-    }
-
     public void startFriendsActivity() {
         startActivity(new Intent(this, FriendListActivity.class));
     }
 
     @Override
     public void onFriendsPermissionObtained() {
-        Log.d(TAG, "onFriendsPermissionObtained()" );
         startFriendsActivity();
     }
 }

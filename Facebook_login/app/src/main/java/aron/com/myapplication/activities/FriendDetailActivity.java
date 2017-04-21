@@ -18,7 +18,7 @@ import aron.com.myapplication.model.Friend;
 public class FriendDetailActivity extends Activity{
     public static final String EXTRA_FRIEND = "EXTRA_FRIEND";
     private ImageView imagePhoto;
-    private TextView textBirthday,textPhone,textEmail, textGender;
+    private TextView textBirthday,textPhone,textEmail, textGender, textHint;
     private Button btnName;
     private Friend friend;
     private static boolean firstClick = true;
@@ -33,7 +33,7 @@ public class FriendDetailActivity extends Activity{
     private void initView(){
         friend = (Friend) getIntent().getSerializableExtra(EXTRA_FRIEND);
         btnName = (Button) findViewById(R.id.btn_name);
-        imagePhoto = (ImageView) findViewById(R.id.row_image);
+        imagePhoto = (ImageView) findViewById(R.id.row_image); textHint = (TextView) findViewById(R.id.text_hint);
         textBirthday = (TextView) findViewById(R.id.text_birthday); textPhone = (TextView) findViewById(R.id.text_phone);
         textEmail = (TextView) findViewById(R.id.text_email); textGender = (TextView) findViewById(R.id.text_gender);
         btnName.setText(friend.getName());
@@ -43,10 +43,12 @@ public class FriendDetailActivity extends Activity{
                 if (firstClick) {
                     textBirthday.setVisibility(v.VISIBLE); textPhone.setVisibility(v.VISIBLE);
                     textEmail.setVisibility(v.VISIBLE); textGender.setVisibility(v.VISIBLE);
+                    textHint.setVisibility(v.GONE);
                     firstClick = false;
                 } else {
                     textBirthday.setVisibility(v.GONE); textPhone.setVisibility(v.GONE);
                     textEmail.setVisibility(v.GONE); textGender.setVisibility(v.GONE);
+                    textHint.setVisibility(v.VISIBLE);
                     firstClick = true;
                 }
             }

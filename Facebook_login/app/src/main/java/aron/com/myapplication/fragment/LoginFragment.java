@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -36,24 +37,24 @@ public class LoginFragment extends Fragment{
     private FacebookCallback<LoginResult> callback = new FacebookCallback<LoginResult>() {
         @Override
         public void onSuccess(LoginResult loginResult) {
-            Log.d(TAG, "onSuccess() accessToken: " + loginResult.getAccessToken().toString());
+            Toast.makeText(getContext(),"Login Success",Toast.LENGTH_SHORT).show();
         }
 
         @Override
         public void onCancel() {
-            Log.d(TAG, "onCancel()");
+            Toast.makeText(getContext(),"Login Cancel",Toast.LENGTH_SHORT).show();
         }
 
         @Override
         public void onError(FacebookException error) {
-            Log.d(TAG, "onError() message: " + error.getMessage());
+            Toast.makeText(getContext(),"Login Error",Toast.LENGTH_SHORT).show();
+            Log.e(TAG, "onError() message: " + error.getMessage());
         }
     };
 
     @Override
     public void onAttach(Context activity) {
         super.onAttach(activity);
-        Log.d(TAG, "onAttach()");
         try {
             mListener = (FriendsPermissionListener) activity;
         } catch (ClassCastException e) {
@@ -71,11 +72,9 @@ public class LoginFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        Log.d(TAG, "onCreateView()");
         view = inflater.inflate(R.layout.fragment_login, container, false);
         callbackManager = CallbackManager.Factory.create();
-        btnLogin = (LoginButton) view.findViewById(R.id.facebook_sign_in_button);
+        btnLogin = (LoginButton) view.findViewById(R.id.btn_facebook_login);
         btnLogin.registerCallback(callbackManager, callback);
         btnLogin.setFragment(this);
         btnLogin.setReadPermissions(Arrays.asList("public_profile", "user_friends"));

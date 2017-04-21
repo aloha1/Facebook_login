@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +22,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import aron.com.myapplication.Callback;
 import aron.com.myapplication.R;
 import aron.com.myapplication.activities.FriendDetailActivity;
 import aron.com.myapplication.model.Friend;
@@ -56,7 +56,6 @@ public class FriendFragment extends Fragment{
     @Override
     public void onStart() {
         super.onStart();
-        Log.d(TAG, "onStart()");
         if (!checkAccessToken()) {
             getActivity().finish();
         }
@@ -170,7 +169,7 @@ public class FriendFragment extends Fragment{
             }
         });
         rvFriendList.setAdapter(friendListAdapter);
-        tvEmptyList = (TextView) view.findViewById(R.id.tv_empty_list);
+        tvEmptyList = (TextView) view.findViewById(R.id.text_empty_list);
         if (friendList.isEmpty()) {
             rvFriendList.setVisibility(View.GONE);
             tvEmptyList.setVisibility(View.VISIBLE);
@@ -190,7 +189,6 @@ public class FriendFragment extends Fragment{
 
                 if (!requestNextFriends(nextRequest)) {
                     Toast.makeText(getContext(),"Last Request",Toast.LENGTH_SHORT).show();
-                    Log.d(TAG, "no more nextRequest");
                     friendList.remove(friendList.size() - 1);
                     new Handler().post(new Runnable() {
                         public void run() {
@@ -215,18 +213,11 @@ public class FriendFragment extends Fragment{
             public void onCompleted(GraphResponse graphResponse) {
                 if (graphResponse.getError() != null) {
                     callback.fail();
-                    Log.d(TAG, "graphResponse Error: " + graphResponse.getError().getErrorMessage());
                 } else {
                     callback.complete(graphResponse, graphResponse.getJSONObject());
                 }
             }
         };
         return GraphRequestcallback;
-    }
-
-
-    public interface Callback {
-        void complete(GraphResponse graphResponse, JSONObject jsonObject);
-        void fail();
     }
 }

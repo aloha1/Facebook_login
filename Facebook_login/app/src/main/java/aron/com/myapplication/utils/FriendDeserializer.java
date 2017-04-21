@@ -18,7 +18,6 @@ import aron.com.myapplication.model.Picture;
 
 public class FriendDeserializer implements JsonDeserializer<Friend> {
     private static final String TAG = "FriendDeserializer";
-
     public FriendDeserializer() {
 
     }
