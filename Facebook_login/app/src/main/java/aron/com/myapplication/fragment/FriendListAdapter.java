@@ -109,8 +109,8 @@ public class FriendListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
         public FriendHolder(View itemView) {
             super(itemView);
-            civFriends = (ImageView) itemView.findViewById(R.id.image_friend);
-            tvName = (TextView)itemView.findViewById(R.id.tv_friend_name);
+            civFriends = (ImageView) itemView.findViewById(R.id.row_image);
+            tvName = (TextView)itemView.findViewById(R.id.row_text_name);
         }
 
         public void bind(final Friend item, final OnItemClickListener listener) {

@@ -14,42 +14,34 @@
         android:layout_margin="@dimen/activity_horizontal_margin">
 
         <ImageView
-            android:id="@+id/image_friend"
+            android:id="@+id/row_image"
             android:layout_width="@dimen/detail_imageview"
             android:layout_height="@dimen/detail_imageview"
             android:paddingRight="@dimen/activity_horizontal_margin"
-            android:layout_below="@+id/img_favorite"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="16dp" />
 
-        <ImageView
-            android:id="@+id/img_favorite"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/favorite_empty" />
-
         <LinearLayout
-            android:id="@+id/linear_getAnswer"
-            android:layout_width="wrap_content"
+            android:id="@+id/linear_info"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:layout_centerHorizontal="true"
             android:weightSum="6"
-            android:layout_below="@+id/image_friend">
+            android:layout_below="@+id/row_image">
 
             <Button
-                android:id="@+id/btn_getAnswer"
+                android:id="@+id/btn_name"
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="@string/action_sign_in_short"
+                android:layout_gravity="center"
+                android:hint="@string/friend_name"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_marginRight="@dimen/activity_vertical_margin" />
 
             <TextView
-                android:id="@+id/text_getAnswer"
+                android:id="@+id/text_name"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -63,8 +55,8 @@
                 android:layout_weight="1"
                 android:textSize="20sp"
                 android:layout_gravity="center"
-                android:text="@string/birthday"
-                android:id="@+id/tv_birthday"
+                android:hint="@string/birthday"
+                android:id="@+id/text_birthday"
                 android:gravity="bottom"
                 android:textColor="@android:color/black"/>
 
@@ -74,8 +66,8 @@
                 android:layout_weight="1"
                 android:textSize="20sp"
                 android:layout_gravity="center"
-                android:text="@string/phone_number"
-                android:id="@+id/tv_phone_number"
+                android:hint="@string/phone_number"
+                android:id="@+id/text_phone"
                 android:gravity="bottom"
                 android:textColor="@android:color/black"/>
 
@@ -85,8 +77,8 @@
                 android:layout_weight="1"
                 android:textSize="20sp"
                 android:layout_gravity="center"
-                android:text="@string/email"
-                android:id="@+id/tv_email"
+                android:hint="@string/email"
+                android:id="@+id/text_email"
                 android:gravity="bottom"
                 android:textColor="@android:color/black"/>
 
@@ -96,8 +88,8 @@
                 android:layout_weight="1"
                 android:textSize="20sp"
                 android:layout_gravity="center"
-                android:text="@string/gender"
-                android:id="@+id/tv_gender"
+                android:hint="@string/gender"
+                android:id="@+id/text_gender"
                 android:gravity="bottom"
                 android:textColor="@android:color/black"/>
         </LinearLayout>

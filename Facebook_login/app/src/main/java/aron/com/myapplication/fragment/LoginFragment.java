@@ -57,7 +57,7 @@ public class LoginFragment extends Fragment{
         try {
             mListener = (FriendsPermissionListener) activity;
         } catch (ClassCastException e) {
-            throw new ClassCastException(activity.toString() + " must implement FriendsPermissionListener");
+            throw new ClassCastException(activity.toString() + "FriendsPermissionListener required");
         }
     }
 
@@ -86,7 +86,6 @@ public class LoginFragment extends Fragment{
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
-        Log.d(TAG, "onActivityResult() requestCode: " + requestCode);
         if (checkPermissions()) {
             mListener.onFriendsPermissionObtained();
         }
@@ -99,13 +98,10 @@ public class LoginFragment extends Fragment{
     private boolean checkPermissions() {
         boolean hasPermission = false;
         AccessToken token = AccessToken.getCurrentAccessToken();
-        Log.d(TAG, "AccessToken: " + token);
         if (token != null) {
-            Log.d(TAG, "isExpired: " + token.isExpired());
             if (!token.isExpired()) {
                 Set<String> permissions = token.getPermissions();
                 for (String permission : permissions) {
-                    Log.d(TAG, "permission: " + permission);
                     if (permission.equals("user_friends")) {
                         hasPermission = true;
                     }
@@ -118,30 +114,25 @@ public class LoginFragment extends Fragment{
     @Override
     public void onResume() {
         super.onResume();
-        Log.d(TAG, "onResume()");
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        Log.d(TAG, "onPause()");
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        Log.d(TAG, "onStop()");
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d(TAG, "onDestroy()");
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
-        Log.d(TAG, "onDetach()");
     }
 }

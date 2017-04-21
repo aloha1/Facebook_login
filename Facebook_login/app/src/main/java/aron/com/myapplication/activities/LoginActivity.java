@@ -26,9 +26,18 @@ public class LoginActivity extends AppCompatActivity implements LoginFragment.Fr
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        initFacebook();
+        setContentView(R.layout.activity_login);
+        checkExistLogin(savedInstanceState);
+        checkPermissions();
+    }
+
+    private void initFacebook(){
         FacebookSdk.sdkInitialize(getApplicationContext());
         callbackManager = CallbackManager.Factory.create();
-        setContentView(R.layout.activity_login);
+    }
+
+    private void checkExistLogin(Bundle savedInstanceState){
         if (savedInstanceState == null) {
             Log.d(TAG, "Bundle is clear, transaction add");
             LoginFragment fragment = LoginFragment.getInstance();
@@ -39,8 +48,8 @@ public class LoginActivity extends AppCompatActivity implements LoginFragment.Fr
         } else {
             Log.d(TAG, "Last Login existed");
         }
-        checkPermissions();
     }
+
 
     private void checkPermissions() {
         AccessToken token = AccessToken.getCurrentAccessToken();
@@ -77,62 +86,4 @@ public class LoginActivity extends AppCompatActivity implements LoginFragment.Fr
         Log.d(TAG, "onFriendsPermissionObtained()" );
         startFriendsActivity();
     }
-//
-//    private CallbackManager callbackManager;
-//    private TextView info;
-//    private LoginButton loginButton;
-//
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//
-//        FacebookSdk.sdkInitialize(getApplicationContext());
-//        callbackManager = CallbackManager.Factory.create();
-//
-//        //Check if user is currently logged in
-//        if(AccessToken.getCurrentAccessToken() == null){
-//            Toast.makeText(this, "Please login first", Toast.LENGTH_LONG).show();
-//            Log.d("TAG","Not login yet");
-//        }
-//
-//        if (AccessToken.getCurrentAccessToken() != null){
-//            Toast.makeText(this, "Already Login, Transacting...", Toast.LENGTH_LONG).show();
-//            Log.d("TAG","Already in");
-//            Intent intent = new Intent(LoginActivity.this, FriendListActivity.class);
-//            intent.putExtra("AccessToken", AccessToken.getCurrentAccessToken());
-//            LoginActivity.this.startActivity(intent);
-//        }
-//        setContentView(R.layout.activity_main);
-//
-//        info = (TextView)findViewById(R.id.info);
-//        loginButton = (LoginButton)findViewById(R.id.login_button);
-//        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-//            @Override
-//            public void onSuccess(LoginResult loginResult) {
-//                info.setText("User ID:  " +
-//                        loginResult.getAccessToken().getUserId() + "\n" +
-//                        "Application:  " +
-//                        loginResult.getAccessToken().getApplicationId() + "\n" +
-//                        "Auth Token: " + loginResult.getAccessToken().getToken());
-//                Intent intent = new Intent(LoginActivity.this, FriendListActivity.class);
-//                intent.putExtra("AccessToken", loginResult.getAccessToken().getToken());
-//                LoginActivity.this.startActivity(intent);
-//            }
-//
-//            @Override
-//            public void onCancel() {
-//                info.setText("Login attempt cancelled.");
-//            }
-//
-//            @Override
-//            public void onError(FacebookException e) {
-//                info.setText("Login attempt failed.");
-//            }
-//        });
-//    }
-//
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        callbackManager.onActivityResult(requestCode, resultCode, data);
-//    }
 }

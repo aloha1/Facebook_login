@@ -5,7 +5,7 @@
     android:padding="10dp">
 
     <ImageView
-        android:id="@+id/image_friend"
+        android:id="@+id/row_image"
         android:layout_width="@dimen/imageview_size"
         android:layout_height="@dimen/imageview_size" />
 
@@ -17,6 +17,6 @@
         android:paddingLeft="@dimen/tv_normal_padding"
         android:layout_gravity="center"
         android:text="Friend Name"
-        android:id="@+id/tv_friend_name"
+        android:id="@+id/row_text_name"
         android:textColor="@android:color/black"/>
 </LinearLayout>
