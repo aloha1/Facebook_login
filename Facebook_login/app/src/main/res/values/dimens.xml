@@ -6,4 +6,5 @@
     <dimen name="tv_normal_padding">5dp</dimen>
     <dimen name="imageview_size">72dp</dimen>
     <dimen name="detail_imageview">168dp</dimen>
+    <dimen name="text_size">20sp</dimen>
 </resources>

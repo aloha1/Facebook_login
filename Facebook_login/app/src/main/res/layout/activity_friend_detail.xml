@@ -10,7 +10,6 @@
     <RelativeLayout android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:orientation="vertical"
-
         android:layout_margin="@dimen/activity_horizontal_margin">
 
         <ImageView
@@ -40,20 +39,14 @@
                 android:layout_marginTop="@dimen/activity_vertical_margin"
                 android:layout_marginRight="@dimen/activity_vertical_margin" />
 
-            <TextView
-                android:id="@+id/text_name"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:visibility="gone"
-                android:padding="@dimen/activity_vertical_margin"
-                android:layout_marginTop="@dimen/activity_vertical_margin" />
+
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:textSize="20sp"
+                android:textSize="@dimen/text_size"
+                android:visibility="gone"
                 android:layout_gravity="center"
                 android:hint="@string/birthday"
                 android:id="@+id/text_birthday"
@@ -64,7 +57,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:textSize="20sp"
+                android:textSize="@dimen/text_size"
+                android:visibility="gone"
                 android:layout_gravity="center"
                 android:hint="@string/phone_number"
                 android:id="@+id/text_phone"
@@ -75,7 +69,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:textSize="20sp"
+                android:textSize="@dimen/text_size"
+                android:visibility="gone"
                 android:layout_gravity="center"
                 android:hint="@string/email"
                 android:id="@+id/text_email"
@@ -86,7 +81,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:textSize="20sp"
+                android:textSize="@dimen/text_size"
+                android:visibility="gone"
                 android:layout_gravity="center"
                 android:hint="@string/gender"
                 android:id="@+id/text_gender"
